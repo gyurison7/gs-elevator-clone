@@ -1,3 +1,46 @@
+// header +  gnb
+let changedHeader = false;
+const headerMotion = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-intro",
+    start: "100% 50%",
+    end: "100% 0%",
+    // markers: true,
+    onEnter: function () {
+      changedHeader = true;
+      onEnterHeader();
+    },
+    onLeaveBack: function () {
+      changedHeader = false;
+      onLeaveBackHeader();
+    },
+  },
+});
+
+function onEnterHeader() {
+  $(".header-wrapper, .logo, .gnb-link, .btn-search, .btn-lang, .util .help").addClass("on");
+}
+function onLeaveBackHeader() {
+  $(".header-wrapper, .logo, .gnb-link, .btn-search, .btn-lang, .util .help").removeClass("on");
+}
+function openMenu() {
+  $(".hidden-menu, .sub-gnb").addClass("on");
+}
+function closeMenu() {
+  $(".hidden-menu, .sub-gnb").removeClass("on");
+}
+
+$(".gnb").hover(
+  function () {
+    openMenu();
+    if (!changedHeader) onEnterHeader();
+  },
+  function () {
+    closeMenu();
+    if (!changedHeader) onLeaveBackHeader();
+  }
+);
+
 // sc-intro
 var introVideo = document.getElementById("intro-video");
 var videoBtn = document.getElementById("video-btn");
@@ -17,6 +60,23 @@ introVideo.addEventListener("timeupdate", function () {
   var progress = (introVideo.currentTime / introVideo.duration) * 100;
   progressBar.style.width = progress + "%";
 });
+
+const introMotion = gsap.timeline({
+  ease: "power2.easeInOut",
+  duration: 1,
+});
+introMotion
+  .from(".sc-intro .content-wrapper .title-area", {
+    opacity: 0,
+    yPercent: 100,
+    delay: 0.5,
+  })
+  .to(".animation .round", {
+    onStart: () => $(".animation .round").addClass("on"),
+  })
+  .to(".animation .ky", {
+    onStart: () => $(".animation .ky").addClass("on"),
+  });
 
 // top-btn
 gsap.from(".top-btn-wrapper", {

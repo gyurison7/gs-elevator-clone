@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GS엘리베이터</title>
 
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -27,30 +27,85 @@
           <a href=""><span class="blind">GS 엘리베이터 로고</span></a>
         </h1>
         <nav class="gnb">
+          <div class="hidden-menu"></div>
           <ul class="gnb-list">
             <li class="gnb-item">
-              <a href="">회사소개</a>
+              <a class="gnb-link" href="">회사소개</a>
+              <div class="sub-gnb">
+                <ul>
+                  <li><a href="">개요</a></li>
+                  <li><a href="">지속가능경영</a></li>
+                  <li><a href="">뉴스룸</a></li>
+                  <li><a href="">사업장</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-item">
-              <a href="">제품</a>
+              <a class="gnb-link" href="">제품</a>
+              <div class="sub-gnb">
+                <ul>
+                  <li><a href="">엘리베이터</a></li>
+                  <li><a href="">신규 설치</a></li>
+                  <li><a href="">전면 교체</a></li>
+                  <li><a href="">주요 프로젝트</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-item">
-              <a href="">유지관리 서비스</a>
+              <a class="gnb-link" href="">유지관리 서비스</a>
+              <div class="sub-gnb">
+                <ul>
+                  <li><a href="">GS 케어 플러스</a></li>
+                  <li>
+                    <a href=""
+                      >Scope&Lift<br />
+                      <span>(원격제어서비스)</span>
+                    </a>
+                  </li>
+                  <li><a href="">부분 교체</a></li>
+                  <li><a href="">부품정보조회</a></li>
+                  <li><a href="">서비스 네트워크</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-item">
-              <a href="">고객지원</a>
+              <a class="gnb-link" href="">고객지원</a>
+              <div class="sub-gnb">
+                <ul>
+                  <li><a href="">라이브러리</a></li>
+                  <li><a href="">문의하기</a></li>
+                  <li><a href="">자주 묻는 질문</a></li>
+                  <li><a href="">사이버 신문고</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-item">
-              <a href="">채용안내</a>
+              <a class="gnb-link" href="">채용안내</a>
+              <div class="sub-gnb">
+                <ul>
+                  <li><a href="">인재상</a></li>
+                  <li><a href="">인사제도</a></li>
+                  <li><a href="">직무소개</a></li>
+                  <li><a href="">채용공고</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
         <div class="util">
           <div class="search">
-            <button><span class="blind">검색</span></button>
+            <button class="btn-search"><span class="blind">검색</span></button>
           </div>
           <div class="lang">
-            <button><span class="blind">언어 선택</span></button>
+            <button class="btn-lang"><span class="blind">언어 선택</span></button>
+            <ul class="lang-list">
+              <li class="active">
+                <a href=""><span>KR</span></a>
+              </li>
+              <li>
+                <a href=""><span>EN</span></a>
+              </li>
+            </ul>
           </div>
           <div class="help">
             <button>Help</button>
@@ -65,13 +120,20 @@
           <video id="intro-video" autoplay loop muted src="./assets/videos/intro-video.mp4"></video>
         </div>
         <div class="content-wrapper inner">
-          <h2 class="title">
-            Ground to Sky,<br />
-            Elevate Trust
-          </h2>
-          <p class="description">
-            고객에게 최고의 경험을 선사하고 엘리베이터의 기준을 높이겠습니다.
-          </p>
+          <div class="title-area">
+            <h2 class="title">
+              <div class="animation">
+                <span class="g">G</span>
+                <span class="round">round to&nbsp;</span>
+                <span class="s">S</span>
+                <span class="ky">ky,</span>
+              </div>
+              <div>Elevate Trust</div>
+            </h2>
+            <p class="description">
+              고객에게 최고의 경험을 선사하고 엘리베이터의 기준을 높이겠습니다.
+            </p>
+          </div>
           <div class="control-area">
             <div class="progress-area">
               <span id="progress-bar"></span>
