@@ -1,0 +1,167 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 60px;
+    border-top: 1px solid #cacaca;
+    @include desktop-small() {
+      flex-direction: column;
+      padding: 45px 65px;
+    }
+    @include tablet() {
+      padding: 48px 20px;
+    }
+  }
+  footer .left-area {
+    display: flex;
+    @include desktop-small() {
+      order: 2;
+    }
+  }
+  footer .left-area .logo-area {
+    width: 270px;
+    margin-right: 80px;
+    @include desktop-small() {
+      display: none;
+    }
+  }
+  footer .left-area .logo-area img {
+    width: 100%;
+  }
+  footer .left-area address {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    @include desktop-small() {
+      margin-top: 0;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+  }
+  footer .left-area address div {
+    font-weight: 400;
+    color: #555;
+  }
+  footer .left-area .title {
+    margin-bottom: 8px;
+  }
+  footer .left-area .address span {
+    display: block;
+    line-height: 1.4;
+    color: #555;
+  }
+  footer .left-area small {
+    margin-top: 30px;
+    color: #999999;
+    line-height: 1.4;
+    @include desktop-small() {
+      margin-top: 8px;
+    }
+  }
+  footer .right-area {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    position: relative;
+    @include desktop-small() {
+      order: 1;
+    }
+    @include mobile {
+      margin-bottom: 24px;
+    }
+  }
+  footer .right-area .top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top: 22px;
+    color: #107af2;
+    @include desktop-small {
+      justify-content: space-between;
+      margin: 0 0 32px;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  footer .right-area .footer-legal {
+    margin-right: 30px;
+  }
+  footer .right-area .footer-legal > * {
+    padding: 0 20px;
+    @include desktop-small {
+      padding: 0 16px;
+    }
+  }
+  footer .right-area .footer-legal button {
+    position: relative;
+    @include desktop-small {
+      padding-left: 0;
+    }
+  }
+  footer .right-area .footer-legal button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 14px;
+    background-color: #107af2;
+  }
+  footer .right-area .family-site {
+    @include mobile {
+      width: 100%;
+      margin-top: 24px;
+    }
+  }
+  footer .right-area .family-site button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    background-color: #e4f2fe;
+    border-radius: 99px;
+    @include desktop-small {
+      min-width: 180px;
+      padding: 17px 16px 19px;
+    }
+    @include mobile {
+      width: 100%;
+    }
+  }
+  footer .right-area .family-site button::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    margin-left: 16px;
+    background: url("../svgs/plus-blue.svg") no-repeat center / 100%;
+  }
+  footer .right-area .bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    @include desktop-small {
+      bottom: -86px;
+    }
+    @include mobile {
+     position: unset;
+    }
+  }
+  footer .right-area .bottom a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #bedefc;
+    background-color: #fff;
+  }

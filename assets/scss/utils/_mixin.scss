@@ -1,0 +1,39 @@
+@mixin ellipse($line:1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    word-wrap: break-word;
+    @if($line > 1) {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    } @else {
+        white-space: nowrap;
+    }
+}
+
+@mixin desktop() {
+    @media (max-width: 1539px) {
+        @content;
+    }
+}
+@mixin desktop-small() {
+    @media (max-width: 1399px) {
+        @content;
+    }
+}
+@mixin laptop() {
+    @media (max-width: 1199px) {
+        @content;
+    }
+}
+@mixin tablet() {
+    @media (max-width: 1023px) {
+        @content;
+    }
+}
+@mixin mobile() {
+    @media (max-width:767px) {
+        @content;
+    }
+}

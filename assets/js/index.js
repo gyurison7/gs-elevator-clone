@@ -169,35 +169,27 @@ rollingMotion.to(".sc-synergy .rolling-num", {
 });
 
 // sc-project
-const projcetSwiper = new Swiper(".swiper-container", {
-  slidesPerView: 4,
-  spaceBetween: 56,
+const projcetSwiper = new Swiper(".project-slide", {
+  slidesPerView: "auto",
+  spaceBetween: 8,
   navigation: {
     prevEl: ".btn-prev",
     nextEl: ".btn-next",
   },
-  autoplay: false,
-  breakpoints: {
-    1539: {
-      slidesPerView: 4,
-    },
-    1366: {
-      slidesPerView: 3.5,
-    },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "progressbar",
   },
-  on: {
-    slideChange: function () {
-      const slideLength = this.slides.length; // 슬라이드 개수
-      const currentIndex = this.realIndex; // 현재 활성화된 슬라이드의 인덱스
-      const progress = ((currentIndex + 1) / (slideLength - 2)) * 100; // 10%부터 시작
-      document.querySelector(".progress-bar").style.width = progress + "%";
+  breakpoints: {
+    1023: {
+      spaceBetween: 56,
     },
   },
 });
 
-gsap.from(".sc-project .swiper-container", {
+gsap.from(".sc-project .project-slide", {
   scrollTrigger: {
-    trigger: ".sc-project .swiper-container",
+    trigger: ".sc-project .project-slide",
     start: "0% 100%",
     end: "100% 0%",
     toggleActions: "play none none reverse",
