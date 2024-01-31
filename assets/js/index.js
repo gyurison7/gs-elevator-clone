@@ -1,5 +1,21 @@
+const lenis = new Lenis();
+
+lenis.on("scroll", (e) => {
+  // console.log(e);
+});
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
 // header +  gnb
 let changedHeader = false;
+const elements =
+  ".header-wrapper, .logo, .gnb-link, .btn-search, .btn-lang, .util .help button, .mobile-btn";
 const headerMotion = gsap.timeline({
   scrollTrigger: {
     trigger: ".sc-intro",
@@ -12,53 +28,143 @@ const headerMotion = gsap.timeline({
     },
     onLeaveBack: function () {
       changedHeader = false;
-      onLeaveBackHeader();
+      if (!openSearchMenu) onLeaveBackHeader();
     },
   },
 });
 
 function onEnterHeader() {
-  $(".header-wrapper, .logo, .gnb-link, .btn-search, .btn-lang, .util .help").addClass("on");
+  $(elements).addClass("on");
 }
 function onLeaveBackHeader() {
-  $(".header-wrapper, .logo, .gnb-link, .btn-search, .btn-lang, .util .help").removeClass("on");
+  $(elements).removeClass("on");
+  changedHeader = false;
 }
-function openMenu() {
-  $(".hidden-menu, .sub-gnb").addClass("on");
+
+function openGnb() {
+  $(".hidden-menu, .sub-gnb, .header-banner").addClass("on");
 }
-function closeMenu() {
-  $(".hidden-menu, .sub-gnb").removeClass("on");
+function closeGnb() {
+  $(".hidden-menu, .sub-gnb, .header-banner").removeClass("on");
 }
 
 $(".gnb").hover(
   function () {
-    openMenu();
     if (!changedHeader) onEnterHeader();
+    openGnb();
   },
   function () {
-    closeMenu();
-    if (!changedHeader) onLeaveBackHeader();
+    if (!changedHeader && !openSearchMenu) onLeaveBackHeader();
+    closeGnb();
   }
 );
+
+let openSearchMenu = false;
+$(".btn-search").click(function () {
+  if ($(this).hasClass("open")) {
+    openSearchMenu = false;
+    $(this).removeClass("open");
+    $(".search-menu").removeClass("open");
+    if (!changedHeader) onLeaveBackHeader();
+    $(".search-dim").hide();
+  } else {
+    openSearchMenu = true;
+    onEnterHeader();
+    $(this).addClass("open");
+    $(".search-menu").addClass("open");
+    $(".search-dim").show();
+  }
+});
+
+// help-menu
+$(".btn-help").click(function () {
+  openMenu(".help-menu");
+});
+$(".help-menu .close").click(function () {
+  closeMenu(".help-menu");
+});
+
+function openMenu(element) {
+  $(".dim").show();
+  $(element).addClass("open");
+  $("body").addClass("no-scroll");
+  lenis.stop(); // Lenis 스크롤 정지
+}
+function closeMenu(element) {
+  $(".dim").hide();
+  $(element).removeClass("open");
+  $("body").removeClass("no-scroll");
+  lenis.start(); // Lenis 스크롤 시작
+}
+
+$(document).click(function (event) {
+  if (
+    $(".help-menu").hasClass("open") &&
+    !$(event.target).closest(".help").length &&
+    !$(event.target).closest(".help-menu").length
+  ) {
+    closeMenu(".help-menu");
+  }
+});
+
+// lenis의 영향을 받지 않도록
+$(".help-menu, .mobile-menu").on("wheel", function (event) {
+  event.stopPropagation();
+});
+
+// mobile-menu
+$(".mobile-btn").click(function () {
+  openMenu(".mobile-menu");
+});
+$(".mobile-menu .close").click(function () {
+  closeMenu(".mobile-menu");
+});
+
+$(document).click(function (event) {
+  if (
+    $(".mobile-menu").hasClass("open") &&
+    !$(event.target).closest(".mobile-btn").length &&
+    !$(event.target).closest(".mobile-menu").length
+  ) {
+    closeMenu(".mobile-menu");
+  }
+});
+
+// mobile-sub-gnb
+$(".mobile-item").click(function (e) {
+  e.preventDefault();
+  $(this).toggleClass("on").siblings().removeClass("on");
+  $(this).find(".mobile-sub-gnb").slideToggle();
+  $(this).siblings().find(".mobile-sub-gnb").slideUp();
+});
 
 // sc-intro
 var introVideo = document.getElementById("intro-video");
 var videoBtn = document.getElementById("video-btn");
 var progressBar = document.getElementById("progress-bar");
 
-videoBtn.addEventListener("click", function () {
-  if (introVideo.paused) {
-    introVideo.play();
-    videoBtn.classList.remove("play");
-  } else {
-    introVideo.pause();
-    videoBtn.classList.add("play");
-  }
-});
+introVideo.addEventListener("loadedmetadata", function () {
+  const barMotion = gsap.to("#progress-bar", introVideo.duration, {
+    repeat: -1, // 무한 반복
+    width: "100%",
+    paused: true,
+    ease: "none",
+  });
 
-introVideo.addEventListener("timeupdate", function () {
-  var progress = (introVideo.currentTime / introVideo.duration) * 100;
-  progressBar.style.width = progress + "%";
+  introVideo.play();
+  barMotion.play();
+
+  videoBtn.addEventListener("click", function () {
+    if (introVideo.paused) {
+      introVideo.play();
+      barMotion.play();
+      videoBtn.classList.remove("play");
+    } else {
+      introVideo.pause();
+      barMotion.pause();
+      videoBtn.classList.add("play");
+    }
+  });
 });
 
 const introMotion = gsap.timeline({
@@ -79,6 +185,10 @@ introMotion
   });
 
 // top-btn
+document.querySelector(".top-btn").addEventListener("click", function () {
+  lenis.scrollTo(0);
+});
+
 gsap.from(".top-btn-wrapper", {
   scrollTrigger: {
     trigger: ".sc-competition",

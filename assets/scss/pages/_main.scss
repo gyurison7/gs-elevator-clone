@@ -1,3 +1,14 @@
+.dim {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -141,7 +152,6 @@
   width: 0;
   height: 100%;
   background-color: #fff;
-  transition: width 0.3s linear;
 }
 .sc-intro .control-area .btn-area {
   position: absolute;
@@ -317,7 +327,7 @@
   @include tablet() {
     font-size: 16px;
   }
-  @include ellipse(3)
+  @include ellipse(3);
 }
 /* 공통 */
 .shortcut-link {
@@ -576,8 +586,8 @@
   }
   @include mobile() {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 60px;
   }
 }
@@ -905,25 +915,25 @@
 }
 @mixin commonBar {
   content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 26px;
-    background-color: #d9d9d9;
-    border-radius: 2px;
-    @include tablet() {
-      width: 1px;
-      height: 16px;
-    }
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 26px;
+  background-color: #d9d9d9;
+  border-radius: 2px;
+  @include tablet() {
+    width: 1px;
+    height: 16px;
+  }
 }
 @media (max-width: 767px) {
   .sc-customer .list-area ul li:nth-child(2n):before {
     @include commonBar;
   }
 }
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .sc-customer .list-area ul li + li a::before {
     @include commonBar;
   }

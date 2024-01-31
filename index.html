@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <div class="dim"></div>
     <header class="header">
       <div class="header-wrapper">
         <h1 class="logo">
@@ -94,6 +97,26 @@
         <div class="util">
           <div class="search">
             <button class="btn-search"><span class="blind">검색</span></button>
+            <div class="search-dim"></div>
+            <div class="search-menu">
+              <div class="input-area">
+                <input type="text" placeholder="검색어를 입력해주세요." />
+              </div>
+              <div class="keyword-area">
+                <span>추천 검색어</span>
+                <ul>
+                  <li>
+                    <a href="">#GS엘리베이터</a>
+                  </li>
+                  <li>
+                    <a href="">#GS건설</a>
+                  </li>
+                  <li>
+                    <a href="">#G·NOVIA</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="lang">
             <button class="btn-lang"><span class="blind">언어 선택</span></button>
@@ -107,16 +130,191 @@
             </ul>
           </div>
           <div class="help">
-            <button>Help</button>
+            <button class="btn-help">Help</button>
           </div>
         </div>
+        <button class="mobile-btn"><span class="blind">모바일 GNB 메뉴 열기</span></button>
+      </div>
+      <div class="header-banner">
+        <a href="">
+          GS엘리베이터<br />회사소개서 다운로드
+          <div class="icon-wrapper"><img src="./assets/svgs/arrow-down.svg" alt="" /></div>
+        </a>
       </div>
     </header>
+
+    <div class="help-menu">
+      <h2 class="blind">헬프 메뉴</h2>
+      <button class="close">
+        <span class="blind">닫기 버튼</span>
+      </button>
+      <div class="content-wrapper">
+        <div class="box-solution">
+          <h3>솔루션</h3>
+          <ul>
+            <li>
+              <a href="">
+                <div class="img-wrapper">
+                  <img src="./assets/svgs/help1.svg" alt="" />
+                </div>
+                신규 설치
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="img-wrapper">
+                  <img src="./assets/svgs/help2.svg" alt="" />
+                </div>
+                전면 교체
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="img-wrapper">
+                  <img src="./assets/svgs/help3.svg" alt="" />
+                </div>
+                부분 교체
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="img-wrapper">
+                  <img src="./assets/svgs/help4.svg" alt="" />
+                </div>
+                유지관리<br />
+                서비스
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="box-library">
+          <h3>라이브러리</h3>
+          <ul>
+            <li>
+              <a href="">회사소개서</a>
+            </li>
+            <li>
+              <a href="">제품 카탈로그</a>
+            </li>
+            <li>
+              <a href="">도면</a>
+            </li>
+          </ul>
+        </div>
+        <div class="box-faq">
+          <div class="header">
+            <h3>자주 묻는 질문</h3>
+            <a href="">More</a>
+          </div>
+          <ul>
+            <li>
+              <a href="">승강기 정기 검사와 자체 점검의 차이점은 무엇인가요?</a>
+            </li>
+            <li>
+              <a href="">승강기 검사 신청은 어떻게 하나요?</a>
+            </li>
+            <li>
+              <a href="">승강기 번호판이 떨어졌어요. 어떻게 해야하나요?</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="center">
+          <h3 class="title">고객케어센터</h3>
+          <a href=""><strong>1670-0917</strong></a>
+          <span>운영시간 : 평일 9:00~18:00</span>
+        </div>
+        <div class="inquiry">
+          <a href=""></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      <h2 class="blind">모바일 GNB 메뉴</h2>
+      <div class="sticky-header">
+        <div class="top-area">
+          <ul class="lang-list">
+            <li class="active">
+              <a href=""><span>KR</span></a>
+            </li>
+            <li>
+              <a href=""><span>EN</span></a>
+            </li>
+          </ul>
+          <button class="close">
+            <span class="blind">닫기 버튼</span>
+          </button>
+        </div>
+        <div class="input-area">
+          <input type="text" placeholder="검색어를 입력해주세요." />
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <ul class="mobile-gnb">
+          <li class="mobile-item">
+            <a class="mobile-link" href="">회사소개</a>
+            <ul class="mobile-sub-gnb">
+              <li><a href="">개요</a></li>
+              <li><a href="">지속가능경영</a></li>
+              <li><a href="">뉴스룸</a></li>
+              <li><a href="">사업장</a></li>
+            </ul>
+          </li>
+          <li class="mobile-item">
+            <a class="mobile-link" href="">제품</a>
+            <ul class="mobile-sub-gnb">
+              <li><a href="">엘리베이터</a></li>
+              <li><a href="">신규 설치</a></li>
+              <li><a href="">전면 교체</a></li>
+              <li><a href="">주요 프로젝트</a></li>
+            </ul>
+          </li>
+          <li class="mobile-item">
+            <a class="mobile-link" href="">유지관리 서비스</a>
+            <ul class="mobile-sub-gnb">
+              <li><a href="">GS 케어 플러스</a></li>
+              <li>
+                <a href="">Scope&Lift<span>(원격제어서비스)</span></a>
+              </li>
+              <li><a href="">부분 교체</a></li>
+              <li><a href="">부품정보조회</a></li>
+              <li><a href="">서비스 네트워크</a></li>
+            </ul>
+          </li>
+          <li class="mobile-item">
+            <a class="mobile-link" href="">고객지원</a>
+            <ul class="mobile-sub-gnb">
+              <li><a href="">라이브러리</a></li>
+              <li><a href="">문의하기</a></li>
+              <li><a href="">자주 묻는 질문</a></li>
+              <li><a href="">사이버 신문고</a></li>
+            </ul>
+          </li>
+          <li class="mobile-item">
+            <a class="mobile-link" href="">채용안내</a>
+            <ul class="mobile-sub-gnb">
+              <li><a href="">인재상</a></li>
+              <li><a href="">인사제도</a></li>
+              <li><a href="">직무소개</a></li>
+              <li><a href="">채용공고</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="header-banner">
+          <a href="">
+            GS엘리베이터<br />회사소개서 다운로드
+            <div class="icon-wrapper"><img src="./assets/svgs/arrow-down.svg" alt="" /></div>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <main class="container">
       <section class="sc-intro">
         <div class="video-wrapper">
-          <video id="intro-video" autoplay loop muted src="./assets/videos/intro-video.mp4"></video>
+          <video id="intro-video" loop muted src="./assets/videos/intro-video.mp4"></video>
         </div>
         <div class="content-wrapper inner">
           <div class="title-area">
@@ -720,7 +918,7 @@
           </section>
         </div>
       </div>
-      <div class="top-btn-wrapper"><a class="top-btn" href=""></a></div>
+      <div class="top-btn-wrapper"><button class="top-btn"></button></div>
     </main>
 
     <footer class="footer">
