@@ -617,6 +617,9 @@
   @include desktop() {
     padding: 0 53px;
   }
+  @include laptop() {
+    padding: 0 30px;
+  }
   @include tablet() {
     padding: 0;
   }
@@ -669,6 +672,11 @@
     font-size: 80px;
     line-height: 5rem;
   }
+  @include laptop() {
+    height: 70px;
+    font-size: 70px;
+    line-height: 4.375rem;
+  }
   @include tablet() {
     height: 48px;
     font-size: 48px;
@@ -699,6 +707,9 @@
   color: #fff;
   @include desktop() {
     font-size: 18px;
+  }
+  @include laptop() {
+    font-size: 16px;
   }
   @include tablet() {
     font-size: 13px;

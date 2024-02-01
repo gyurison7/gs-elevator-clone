@@ -2567,6 +2567,11 @@ footer .right-area .bottom a {
     padding: 0 53px;
   }
 }
+@media (max-width: 1199px) {
+  .sc-synergy .content-wrapper .synergy-list {
+    padding: 0 30px;
+  }
+}
 @media (max-width: 1023px) {
   .sc-synergy .content-wrapper .synergy-list {
     padding: 0;
@@ -2642,6 +2647,13 @@ footer .right-area .bottom a {
     line-height: 5rem;
   }
 }
+@media (max-width: 1199px) {
+  .sc-synergy .synergy-item .num {
+    height: 70px;
+    font-size: 70px;
+    line-height: 4.375rem;
+  }
+}
 @media (max-width: 1023px) {
   .sc-synergy .synergy-item .num {
     height: 48px;
@@ -2687,6 +2699,11 @@ footer .right-area .bottom a {
 @media (max-width: 1539px) {
   .sc-synergy .synergy-item > span {
     font-size: 18px;
+  }
+}
+@media (max-width: 1199px) {
+  .sc-synergy .synergy-item > span {
+    font-size: 16px;
   }
 }
 @media (max-width: 1023px) {
