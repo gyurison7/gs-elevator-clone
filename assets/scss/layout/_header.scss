@@ -42,6 +42,11 @@ header .logo {
 header .logo.on {
   background-image: url("../svgs/logo.svg");
 }
+header .logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 .gnb {
   display: flex;
@@ -91,24 +96,80 @@ header .logo.on {
   color: #333;
 }
 .gnb .hidden-menu {
+  display: none;
   position: absolute;
   top: 100px;
   left: 0;
   width: 100%;
-  height: 0;
-  background-color: #fff;
-  transition: height 0.3s linear;
-}
-.gnb .hidden-menu.on {
   height: 310px;
+  background-color: #fff;
   border-bottom: 1px solid #bedefc;
+}
+/* 공통 */
+.header-banner {
+  position: absolute;
+  width: 360px;
+  top: 38px;
+  right: 60px;
+  @include desktop {
+    width: 240px;
+  }
+}
+.header-banner a {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 30px 40px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(26, 182, 195, 0) 0%, rgba(26, 182, 195, 0) 100%),
+    linear-gradient(130deg, #00d1d2 0%, #107af2 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  line-height: 1.75rem;
+  @include desktop {
+    padding: 30px 20px;
+  }
+}
+.header-banner .icon-wrapper {
+  position: relative;
+  margin-top: 45px;
+  width: 30px;
+}
+.header-banner .icon-wrapper::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.header-banner .icon-wrapper img {
+  position: relative;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  transition: transform 0.5s;
+  transform: translateY(-10px);
+}
+.gnb .header-banner:hover .icon-wrapper img {
+  transform: translateY(0);
+}
+.gnb .header-banner a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 130px;
+  height: 130px;
+  background: url("../svgs/symbol-small.svg") no-repeat center / 100%;
 }
 .gnb .sub-gnb {
   position: absolute;
   top: 126px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s linear;
 }
 .gnb .sub-gnb.on {
   pointer-events: auto;
@@ -131,6 +192,11 @@ header .logo.on {
 }
 .sub-gnb ul li a:hover {
   color: #107af2;
+}
+.gnb .sub-gnb span {
+  font-size: 12px;
+  letter-spacing: 0em;
+  line-height: 0.875rem;
 }
 
 header .util {
@@ -195,6 +261,7 @@ header .util .search .search-dim {
   left: 0;
   width: 100vw;
   height: 100vh;
+  cursor: auto;
   background: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
@@ -364,73 +431,6 @@ header .header-wrapper .mobile-btn {
 header .header-wrapper .mobile-btn.on {
   background-image: url("../svgs/menu-icon-black.svg");
 }
-/* 공통 */
-.header-banner {
-  position: absolute;
-  width: 360px;
-  top: 138px;
-  right: 60px;
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.3s 0.17s ease-in;
-  @include desktop {
-    width: 240px;
-  }
-}
-header .header-banner.on {
-  visibility: visible;
-  opacity: 1;
-}
-.header-banner a {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 30px 40px;
-  border-radius: 10px;
-  background: linear-gradient(0deg, rgba(26, 182, 195, 0) 0%, rgba(26, 182, 195, 0) 100%),
-    linear-gradient(130deg, #00d1d2 0%, #107af2 100%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.03em;
-  line-height: 1.75rem;
-  @include desktop {
-    padding: 30px 20px;
-  }
-}
-.header-banner .icon-wrapper {
-  position: relative;
-  margin-top: 45px;
-  width: 30px;
-}
-.header-banner .icon-wrapper::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 3px;
-  border-radius: 3px;
-  background-color: #fff;
-}
-.header-banner .icon-wrapper img {
-  position: relative;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 5px;
-  transition: transform 0.5s;
-  transform: translateY(-10px);
-}
-header .header-banner:hover .icon-wrapper img {
-  transform: translateY(0);
-}
-header .header-banner a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 130px;
-  height: 130px;
-  background: url("../svgs/symbol-small.svg") no-repeat center / 100%;
-}
 
 .help-menu {
   position: fixed;
@@ -443,6 +443,12 @@ header .header-banner a::after {
   overflow-y: auto;
   z-index: 999;
   transition: right 0.3s linear;
+  @include desktop-small {
+    max-width: 440px;
+  }
+  @include mobile {
+    max-width: 100%;
+  }
 }
 .help-menu.open {
   right: 0;
@@ -453,6 +459,12 @@ header .header-banner a::after {
   right: 40px;
   width: 35px;
   height: 35px;
+  @include desktop-small {
+    top: 10px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
 }
 /* 공통 */
 .close::after {
@@ -468,23 +480,37 @@ header .header-banner a::after {
 }
 .help-menu .close:hover::after {
   transform: translate(-50%, -50%) rotate(180deg);
+  @include desktop-small {
+    transform: translate(-50%, -50%);
+  }
 }
 .help-menu .content-wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 80px 60px 0 50px;
+  @include desktop-small {
+    padding: 65px 20px 0;
+  }
 }
 .help-menu [class*="box-"] {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  @include desktop-small {
+    margin-bottom: 40px;
+  }
 }
 .help-menu .content-wrapper h3 {
-  display: block;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   color: #000;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.75rem;
+  @include desktop-small {
+    font-size: 20px;
+    letter-spacing: 0em;
+    line-height: 1.125rem;
+  }
 }
 .help-menu ul {
   display: flex;
@@ -502,24 +528,60 @@ header .header-banner a::after {
   font-size: 18px;
   letter-spacing: -0.03em;
   line-height: 1.25rem;
+  @include desktop-small {
+    padding: 16px 8px 14px;
+  }
+  @include tablet {
+    font-size: 15px;
+    letter-spacing: -0.015em;
+    line-height: 1.3125rem;
+  }
+  &:hover {
+    color: #107af2;
+  }
+}
+.help-menu .box-solution {
+  margin-bottom: 80px;
+  @include desktop-small {
+    margin-bottom: 40px;
+  }
+}
+.help-menu .box-solution h3 {
+  margin-bottom: 24px;
+  @include desktop-small {
+    margin-bottom: 16px;
+  }
 }
 .help-menu .box-solution ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  @include desktop-small {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+  }
 }
 .help-menu .box-solution li {
   display: flex;
   gap: 30px;
   flex: 1;
   text-align: center;
-  color: #333333;
   border: 0;
 }
 .help-menu .box-solution a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
+  @include desktop-small {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    text-align: left;
+  }
 }
 .help-menu .box-solution .img-wrapper {
   display: flex;
@@ -531,10 +593,23 @@ header .header-banner a::after {
   padding: 17px 0;
   border-radius: 50%;
   background-color: #e4f2fe;
+  @include desktop-small {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
 }
 .help-menu .box-solution img {
   width: 56px;
   height: 56px;
+}
+.help-menu .box-solution span {
+  @include desktop-small {
+    padding-left: 16px;
+  }
 }
 .help-menu .box-library li a {
   position: relative;
@@ -552,6 +627,11 @@ header .header-banner a::after {
 .help-menu .box-faq .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.help-menu .box-faq .header h3 {
+  margin-bottom: 0;
 }
 .help-menu .box-faq .header a {
   display: flex;
@@ -567,6 +647,16 @@ header .header-banner a::after {
   letter-spacing: -0.03em;
   line-height: 1.125rem;
   transition: border 0.25s linear;
+  @include desktop-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 26px;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 50%;
+  }
 }
 .help-menu .box-faq .header a:after {
   content: "";
@@ -574,15 +664,29 @@ header .header-banner a::after {
   height: 12px;
   margin-left: 16px;
   background: url("../svgs/arrow-more.svg") no-repeat center / cover;
+  @include desktop-small {
+    margin-left: 0;
+  }
 }
 .help-menu .box-faq .header a:hover {
   border-color: #000;
+  @include desktop-small {
+    border: 1px solid #cacaca;
+  }
+}
+.help-menu .box-faq .header a span {
+  @include desktop-small {
+    display: none;
+  }
 }
 .help-menu .footer {
   display: flex;
   position: relative;
   padding: 40px 165px 40px 50px;
   background-color: #f3f3f3;
+  @include desktop-small {
+    padding: 24px 20px;
+  }
 }
 .help-menu .footer .center {
   display: flex;
@@ -596,6 +700,11 @@ header .header-banner a::after {
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.375rem;
+  @include tablet {
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    line-height: 1.25rem;
+  }
 }
 .help-menu .footer a {
   display: block;
@@ -605,40 +714,57 @@ header .header-banner a::after {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 0;
+  @include desktop-small {
+    font-size: 30px;
+  }
 }
 .help-menu .footer span {
   font-size: 16px;
   letter-spacing: -0.03em;
   line-height: 1.375rem;
+  @include tablet {
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    line-height: 1.25rem;
+  }
 }
 .help-menu .footer .inquiry {
   position: absolute;
   top: 50%;
   right: 60px;
   transform: translateY(-50%);
+  @include desktop-small {
+    right: 20px;
+    width: 64px;
+    height: 64px;
+  }
 }
 .help-menu .footer .inquiry a {
   display: block;
   width: 95px;
   height: 96px;
   background: url("../svgs/inquiry.svg") no-repeat center / cover;
+  @include desktop-small {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .mobile-menu {
   display: none;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
   max-width: 440px;
   min-height: 100vh;
-  width: 0;
+  width: 100%;
   height: 100%;
   background-color: #fff;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 999;
-  transition: width 0.3s linear;
+  transition: right 0.3s linear;
   @include desktop-small {
     display: block;
   }
@@ -647,7 +773,7 @@ header .header-banner a::after {
   }
 }
 .mobile-menu.open {
-  width: 100%;
+  right: 0;
 }
 .mobile-menu .sticky-header {
   position: sticky;

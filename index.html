@@ -29,7 +29,14 @@
           <a href=""><span class="blind">GS 엘리베이터 로고</span></a>
         </h1>
         <nav class="gnb">
-          <div class="hidden-menu"></div>
+          <div class="hidden-menu">
+            <div class="header-banner">
+              <a href="">
+                GS엘리베이터<br />회사소개서 다운로드
+                <div class="icon-wrapper"><img src="./assets/svgs/arrow-down.svg" alt="" /></div>
+              </a>
+            </div>
+          </div>
           <ul class="gnb-list">
             <li class="gnb-item">
               <a class="gnb-link" href="">회사소개</a>
@@ -135,12 +142,6 @@
         </div>
         <button class="mobile-btn"><span class="blind">모바일 GNB 메뉴 열기</span></button>
       </div>
-      <div class="header-banner">
-        <a href="">
-          GS엘리베이터<br />회사소개서 다운로드
-          <div class="icon-wrapper"><img src="./assets/svgs/arrow-down.svg" alt="" /></div>
-        </a>
-      </div>
     </header>
 
     <div class="help-menu">
@@ -157,7 +158,7 @@
                 <div class="img-wrapper">
                   <img src="./assets/svgs/help1.svg" alt="" />
                 </div>
-                신규 설치
+                <span>신규 설치</span>
               </a>
             </li>
             <li>
@@ -165,7 +166,7 @@
                 <div class="img-wrapper">
                   <img src="./assets/svgs/help2.svg" alt="" />
                 </div>
-                전면 교체
+                <span>전면 교체</span>
               </a>
             </li>
             <li>
@@ -173,7 +174,7 @@
                 <div class="img-wrapper">
                   <img src="./assets/svgs/help3.svg" alt="" />
                 </div>
-                부분 교체
+                <span>부분 교체</span>
               </a>
             </li>
             <li>
@@ -181,8 +182,10 @@
                 <div class="img-wrapper">
                   <img src="./assets/svgs/help4.svg" alt="" />
                 </div>
-                유지관리<br />
-                서비스
+                <span>
+                  유지관리<br />
+                  서비스
+                </span>
               </a>
             </li>
           </ul>
@@ -204,7 +207,7 @@
         <div class="box-faq">
           <div class="header">
             <h3>자주 묻는 질문</h3>
-            <a href="">More</a>
+            <a href=""><span>More</span></a>
           </div>
           <ul>
             <li>
@@ -276,7 +279,7 @@
             <ul class="mobile-sub-gnb">
               <li><a href="">GS 케어 플러스</a></li>
               <li>
-                <a href="">Scope&Lift<span>(원격제어서비스)</span></a>
+                <a href="">Scope&Lift <span>(원격제어서비스)</span></a>
               </li>
               <li><a href="">부분 교체</a></li>
               <li><a href="">부품정보조회</a></li>
@@ -349,35 +352,37 @@
             <h2 class="common-title">경쟁력</h2>
             <p class="common-description">신뢰와 경험 그리고 삶, 고객중심 가치를 지향합니다.</p>
           </div>
-          <div class="content-wrapper">
-            <div class="content">
-              <h3>Elevating Trust</h3>
-              <div class="hover-content">
-                <p>
-                  국내 제조·생산공장 운영으로 최고 품질의<br />
-                  제품과 서비스를 제공합니다.
-                </p>
-                <a class="shortcut-link" href=""><span>바로가기</span></a>
+          <div class="swiper competition-slide">
+            <div class="content-wrapper swiper-wrapper">
+              <div class="content swiper-slide">
+                <h3>Elevating Trust</h3>
+                <div class="hover-content">
+                  <p>
+                    국내 제조·생산공장 운영으로 최고 품질의<br />
+                    제품과 서비스를 제공합니다.
+                  </p>
+                  <a class="shortcut-link" href=""><span>바로가기</span></a>
+                </div>
               </div>
-            </div>
-            <div class="content">
-              <h3>Elevating Experience</h3>
-              <div class="hover-content">
-                <p>
-                  환경, 안전, 휴식을 위한 디자인으로<br />
-                  차별화된 경험과 만족을 선사합니다.
-                </p>
-                <a class="shortcut-link" href=""><span>바로가기</span></a>
+              <div class="content swiper-slide">
+                <h3>Elevating Experience</h3>
+                <div class="hover-content">
+                  <p>
+                    환경, 안전, 휴식을 위한 디자인으로<br />
+                    차별화된 경험과 만족을 선사합니다.
+                  </p>
+                  <a class="shortcut-link" href=""><span>바로가기</span></a>
+                </div>
               </div>
-            </div>
-            <div class="content">
-              <h3>Elevating Lives</h3>
-              <div class="hover-content">
-                <p>
-                  지속가능성을 지향하는 진보된 제품으로<br />
-                  새로운 가치를 만듭니다.
-                </p>
-                <a class="shortcut-link" href=""><span>바로가기</span></a>
+              <div class="content swiper-slide">
+                <h3>Elevating Lives</h3>
+                <div class="hover-content">
+                  <p>
+                    지속가능성을 지향하는 진보된 제품으로<br />
+                    새로운 가치를 만듭니다.
+                  </p>
+                  <a class="shortcut-link" href=""><span>바로가기</span></a>
+                </div>
               </div>
             </div>
           </div>
@@ -457,7 +462,7 @@
                 <div class="digits4">
                   <div class="num">
                     <span class="default-num">1</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
@@ -480,7 +485,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">9</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>9</span>
                       <span>8</span>
                       <span>7</span>
@@ -490,20 +495,20 @@
                       <span>3</span>
                       <span>2</span>
                       <span>1</span>
-                      <span>9</span>
-                      <span>8</span>
-                      <span>7</span>
-                      <span>6</span>
-                      <span>5</span>
-                      <span>4</span>
-                      <span>3</span>
-                      <span>2</span>
                       <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                      <span>6</span>
+                      <span>7</span>
+                      <span>8</span>
+                      <span>9</span>
                     </div>
                   </div>
                   <div class="num">
                     <span class="default-num">6</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>6</span>
                       <span>7</span>
                       <span>8</span>
@@ -526,7 +531,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">9</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>9</span>
                       <span>8</span>
                       <span>7</span>
@@ -536,15 +541,15 @@
                       <span>3</span>
                       <span>2</span>
                       <span>1</span>
-                      <span>9</span>
-                      <span>8</span>
-                      <span>7</span>
-                      <span>6</span>
-                      <span>5</span>
-                      <span>4</span>
-                      <span>3</span>
-                      <span>2</span>
                       <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                      <span>6</span>
+                      <span>7</span>
+                      <span>8</span>
+                      <span>9</span>
                     </div>
                   </div>
                 </div>
@@ -556,7 +561,7 @@
                 <div class="digits2">
                   <div class="num">
                     <span class="default-num">4</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>4</span>
                       <span>5</span>
                       <span>6</span>
@@ -579,7 +584,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">4</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>4</span>
                       <span>5</span>
                       <span>6</span>
@@ -589,15 +594,15 @@
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span>6</span>
-                      <span>7</span>
-                      <span>8</span>
-                      <span>9</span>
-                      <span>1</span>
-                      <span>2</span>
                       <span>3</span>
+                      <span>2</span>
+                      <span>1</span>
+                      <span>9</span>
+                      <span>8</span>
+                      <span>7</span>
+                      <span>6</span>
+                      <span>5</span>
+                      <span>4</span>
                     </div>
                   </div>
                 </div>
@@ -609,7 +614,7 @@
                 <div class="digits2">
                   <div class="num">
                     <span class="default-num">2</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>2</span>
                       <span>3</span>
                       <span>4</span>
@@ -632,7 +637,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">3</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>3</span>
                       <span>4</span>
                       <span>5</span>
@@ -642,15 +647,15 @@
                       <span>9</span>
                       <span>1</span>
                       <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span>6</span>
-                      <span>7</span>
-                      <span>8</span>
-                      <span>9</span>
-                      <span>1</span>
                       <span>2</span>
+                      <span>1</span>
+                      <span>9</span>
+                      <span>8</span>
+                      <span>7</span>
+                      <span>6</span>
+                      <span>5</span>
+                      <span>4</span>
+                      <span>3</span>
                     </div>
                   </div>
                 </div>
@@ -662,7 +667,7 @@
                 <div class="digits3">
                   <div class="num">
                     <span class="default-num">1</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
@@ -685,7 +690,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">9</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>9</span>
                       <span>8</span>
                       <span>7</span>
@@ -695,20 +700,20 @@
                       <span>3</span>
                       <span>2</span>
                       <span>1</span>
-                      <span>9</span>
-                      <span>8</span>
-                      <span>7</span>
-                      <span>6</span>
-                      <span>5</span>
-                      <span>4</span>
-                      <span>3</span>
-                      <span>2</span>
                       <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                      <span>6</span>
+                      <span>7</span>
+                      <span>8</span>
+                      <span>9</span>
                     </div>
                   </div>
                   <div class="num">
                     <span class="default-num">1</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
@@ -738,7 +743,7 @@
                 <div class="digits2">
                   <div class="num">
                     <span class="default-num">1</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num down">
                       <span>1</span>
                       <span>2</span>
                       <span>3</span>
@@ -761,7 +766,7 @@
                   </div>
                   <div class="num">
                     <span class="default-num">2</span>
-                    <div class="rolling-num">
+                    <div class="rolling-num up">
                       <span>2</span>
                       <span>3</span>
                       <span>4</span>
@@ -771,15 +776,15 @@
                       <span>8</span>
                       <span>9</span>
                       <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span>6</span>
-                      <span>7</span>
-                      <span>8</span>
-                      <span>9</span>
                       <span>1</span>
+                      <span>9</span>
+                      <span>8</span>
+                      <span>7</span>
+                      <span>6</span>
+                      <span>5</span>
+                      <span>4</span>
+                      <span>3</span>
+                      <span>2</span>
                     </div>
                   </div>
                 </div>

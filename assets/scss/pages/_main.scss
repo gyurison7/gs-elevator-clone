@@ -200,7 +200,6 @@
     margin-bottom: 35px;
   }
 }
-
 .common-title {
   font-size: 60px;
   letter-spacing: -0.03em;
@@ -233,6 +232,18 @@
     margin-top: 16px;
   }
 }
+.sc-competition .competition-slide {
+  @include tablet {
+    width: 98%;
+    height: 384px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+  @include mobile {
+    width: 100%;
+    height: 320px;
+  }
+}
 .sc-competition .content-wrapper {
   display: flex;
   justify-content: space-between;
@@ -244,22 +255,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
   align-items: center;
+  position: relative;
   flex: 1;
   text-align: center;
   height: 640px;
   padding: 0 10px;
-  background: no-repeat center / cover;
-  z-index: 1;
   padding-top: 150px;
+  z-index: 1;
+  background: no-repeat center / cover;
   transition: padding 0.5s;
   @include desktop() {
     height: 518px;
+    margin-right: 0;
   }
-  &:hover {
+  @include tablet() {
+    width: 100%;
+    height: 100%;
     padding-top: 0;
+    flex: none;
   }
+}
+.sc-competition .content-wrapper .content:hover {
+  padding-top: 0;
 }
 .sc-competition .content-wrapper .content:first-child {
   background-image: url("../images/competition1.jpg");
@@ -282,6 +300,12 @@
   background: linear-gradient(144deg, rgba(0, 209, 210, 0.7) 0%, rgba(18, 129, 255, 0.7) 100%);
   transition: all 0.5s;
 }
+.sc-competition .swiper-slide-active::before {
+  @include tablet {
+    height: 100%;
+    opacity: 1;
+  }
+}
 .sc-competition .content:hover::before {
   height: 100%;
   opacity: 1;
@@ -291,9 +315,16 @@
   line-height: 1.4;
   color: #fff;
   font-weight: 600;
+  letter-spacing: 0em;
   transition: transform 0.5s;
   @include desktop() {
     font-size: 36px;
+  }
+  @include tablet() {
+    font-size: 34px;
+  }
+  @include mobile() {
+    font-size: 26px;
   }
   @include ellipse(2);
 }
@@ -305,6 +336,10 @@
   transform: translateY(50%);
   opacity: 0;
   transition: all 0.5s;
+  @include tablet() {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 .sc-competition .content:hover .hover-content {
   opacity: 1;
@@ -326,6 +361,7 @@
   }
   @include tablet() {
     font-size: 16px;
+    line-height: 1.4;
   }
   @include ellipse(3);
 }
@@ -345,7 +381,7 @@
   line-height: 1;
   overflow: hidden;
   @include tablet() {
-    margin-top: 16px;
+    margin-top: 32px;
     padding: 14px 20px;
     font-size: 16px;
     letter-spacing: -0.015em;
@@ -354,17 +390,17 @@
 .shortcut-link::before {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
   background-color: #107af2;
-  transition: top 0.2s linear;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s linear;
 }
 .shortcut-link:hover::before {
-  opacity: 1;
-  top: 0;
+  transform: scaleY(1);
 }
 .shortcut-link span {
   display: flex;
@@ -654,7 +690,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  will-change: transform, bottom;
+  will-change: transform, top;
 }
 .sc-synergy .synergy-item > span {
   font-size: 20px;
@@ -695,7 +731,7 @@
   height: 397px;
   overflow: visible;
   will-change: transform;
-  @include desktop() {
+  @include tablet() {
     height: 331px;
   }
 }

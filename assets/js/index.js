@@ -42,10 +42,14 @@ function onLeaveBackHeader() {
 }
 
 function openGnb() {
-  $(".hidden-menu, .sub-gnb, .header-banner").addClass("on");
+  $(".hidden-menu").slideDown(400);
+  $(".sub-gnb").css("transition", "opacity 0.3s 0.15s linear");
+  $(".sub-gnb").addClass("on");
 }
 function closeGnb() {
-  $(".hidden-menu, .sub-gnb, .header-banner").removeClass("on");
+  $(".hidden-menu").slideUp(400);
+  $(".sub-gnb").css("transition", "");
+  $(".sub-gnb").removeClass("on");
 }
 
 $(".gnb").hover(
@@ -229,6 +233,33 @@ gsap.from(".sc-competition .content-wrapper .content", {
   opacity: 0,
 });
 
+let competitionSwiper;
+function swiperActive() {
+  competitionSwiper = new Swiper(".competition-slide", {
+    slidesPerView: 1,
+    spaceBetween: 8,
+    breakpoints: {
+      768: {
+        spaceBetween: 16,
+      },
+    },
+  });
+}
+
+function checkSwiper() {
+  if (window.innerWidth <= 1023) {
+    if (!competitionSwiper) swiperActive();
+  } else {
+    if (competitionSwiper) {
+      competitionSwiper.destroy();
+      competitionSwiper = null;
+    }
+  }
+}
+
+window.addEventListener("resize", checkSwiper);
+document.addEventListener("DOMContentLoaded", checkSwiper);
+
 //sc-solution
 gsap.from(".sc-solution .solution-list .solution-item", {
   scrollTrigger: {
@@ -269,14 +300,32 @@ rollingMotion.from(".sc-synergy .content-wrapper", {
   scaleX: 0,
   transformOrigin: "center",
 });
-rollingMotion.to(".sc-synergy .rolling-num", {
-  yPercent: -100,
-  bottom: "100%",
-  stagger: {
-    from: "random",
-    each: 0.1,
+rollingMotion.from(
+  ".sc-synergy .rolling-num.down",
+  {
+    yPercent: -100,
+    top: "100%",
+    stagger: {
+      from: "random",
+      each: 0.1,
+    },
+    duration: 2,
   },
-});
+  "a"
+);
+rollingMotion.to(
+  ".sc-synergy .rolling-num.up",
+  {
+    yPercent: -100,
+    top: "100%",
+    stagger: {
+      from: "random",
+      each: 0.1,
+    },
+    duration: 2,
+  },
+  "a"
+);
 
 // sc-project
 const projcetSwiper = new Swiper(".project-slide", {
