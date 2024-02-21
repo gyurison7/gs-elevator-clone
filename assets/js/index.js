@@ -42,9 +42,11 @@ function onLeaveBackHeader() {
 }
 
 function openGnb() {
-  $(".hidden-menu").slideDown(400);
-  $(".sub-gnb").css("transition", "opacity 0.3s 0.15s linear");
-  $(".sub-gnb").addClass("on");
+  setTimeout(function () {
+    $(".hidden-menu").slideDown(400);
+    $(".sub-gnb").css("transition", "opacity 0.3s 0.15s linear");
+    $(".sub-gnb").addClass("on");
+  }, 100);
 }
 function closeGnb() {
   $(".hidden-menu").slideUp(400);
@@ -58,7 +60,9 @@ $(".gnb").hover(
     openGnb();
   },
   function () {
-    if (!changedHeader && !openSearchMenu) onLeaveBackHeader();
+    setTimeout(function () {
+      if (!changedHeader && !openSearchMenu) onLeaveBackHeader();
+    }, 300);
     closeGnb();
   }
 );
@@ -90,14 +94,18 @@ $(".help-menu .close").click(function () {
 
 function openMenu(element) {
   $(".dim").show();
-  $(element).addClass("open");
   $("body").addClass("no-scroll");
+  $(element).addClass("open");
   lenis.stop(); // Lenis 스크롤 정지
 }
 function closeMenu(element) {
   $(".dim").hide();
-  $(element).removeClass("open");
   $("body").removeClass("no-scroll");
+  $(element).removeClass("open");
+  if (element === ".mobile-menu") {
+    $(".mobile-item").removeClass("on");
+    $(".mobile-sub-gnb").slideUp();
+  }
   lenis.start(); // Lenis 스크롤 시작
 }
 
